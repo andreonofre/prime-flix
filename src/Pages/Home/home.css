@@ -50,3 +50,11 @@
     border-left: 2px solid #116feb;
     border-right: 2px solid #116feb;
 }
+
+
+.listaFilmes span {
+    font-size: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+
+}

@@ -40,7 +40,8 @@ const Home = () => {
 
               {/* Vai levar para a rota de filmes com pelo ID */}
               <Link to={`/filme/${filme.id}`}>Acessar</Link> 
-              <span> { filme.vote_average } </span>
+              <br /> 
+              <span> IMDB: { filme.vote_average } </span>
             </article>
           );
         })}
