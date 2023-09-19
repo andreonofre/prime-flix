@@ -4,7 +4,7 @@ import Home from "./Pages/Home/Home";
 import Filme from "./Pages/Filme/Filme";
 import Header from "./components/Header/Header";
 import React from 'react'
-
+import Error from "./Pages/Error/Error";
 
 
 function RoutesApp () {
@@ -14,6 +14,9 @@ function RoutesApp () {
         <Routes>
             <Route path="/" element={ <Home />} />
             <Route path="/filme/:id" element={ <Filme />} />
+
+
+            <Route path="*" element={ <Error />} />
         </Routes>
     </BrowserRouter>
   )

@@ -1,0 +1,39 @@
+
+.not-found {
+    width: 100%;
+    height: calc(100vh - 60px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.not-found h1 {
+    display: flex;
+    font-size: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-found a {
+    display: flex;
+    width: 330px;
+    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px, 0;
+    font-size: 16px;
+    /* background-color: #116feb; */
+    color: #116feb;
+    height: 45px;
+    font-weight: bold;
+    border-bottom: 2px solid #116feb;
+    transition: .3s ease;
+}
+
+.not-found a:hover {
+    background-color: #fff;
+    font-size: 18px;
+
+}

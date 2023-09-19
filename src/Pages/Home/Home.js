@@ -8,7 +8,8 @@ import "./home.css";
 
 const Home = () => {
   const [filmes, setFilmes] = useState([]);
-
+  const [loading, setLoading] = useState(true);
+  
   //Quando carregar a minha página, vai fazer a requisição a API
   useEffect(() => {
     async function loadFilmes() {
@@ -24,10 +25,19 @@ const Home = () => {
       setFilmes(response.data.results);
     }
     loadFilmes();
+    setLoading(false);
   }, []);
 
   console.log("Filmes: ", filmes);
 
+  if (loading) {
+    return (
+      <div className="loading">
+        <h2> Carreganddo filmes...</h2>
+      </div>
+    );
+  };
+  
   return (
     <div className="Container">
       <div className="listaFilmes">
