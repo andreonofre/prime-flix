@@ -53,13 +53,6 @@
 }
 
 
-.listaFilmes span {
-    font-size: 20px;
-    margin-top: 20px;
-    font-weight: bold;
-
-}
-
 .loading {
     display: flex;
     justify-content: center;
