@@ -44,11 +44,12 @@
 }
 
 .listaFilmes a:hover {
-    background-color: #fff;
+    font-size: 26px;
+    /* background-color: #fff;
     color:  #116feb;
     border-bottom: 2px solid #116feb;
     border-left: 2px solid #116feb;
-    border-right: 2px solid #116feb;
+    border-right: 2px solid #116feb; */
 }
 
 
