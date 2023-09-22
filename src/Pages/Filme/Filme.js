@@ -1,9 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, json } from 'react-router-dom';
 import Api from '../../services/Api';
 import "./detalhes.css";
-
 
 const Filme = () => {
   //pegando o meu ID ao clicar no link que direciona pra essa rota
@@ -11,7 +10,6 @@ const Filme = () => {
   const navigate = useNavigate();
   const [filme, setFilme] = useState({});
   const [load, setLoad] = useState(true);
-
 
   useEffect(() => {
     async function loadFilme () {
@@ -34,14 +32,32 @@ const Filme = () => {
 
     loadFilme();
 
-   
-
     return () => {
       console.log("Componente desmontou.")
     };
   },[navigate, id]);
 
 
+  function salvarFilme () {
+    const minhaLista = localStorage.getItem("@primeflix")
+    
+    //se tiver valor no ls, ele trás, se não, inicia com []
+    let filmesSalvos = JSON.parse(minhaLista) || [];
+
+    //verificanod se o filme do LS é igual ao da minha página
+    const hasFIlme = filmesSalvos.some((filmeSalvo) => filmeSalvo.id === filme.id)
+
+    if (hasFIlme) {
+      alert("Filme Já cadastrado")
+      return;
+    }
+
+    //Adicionando mais um filme no LS
+    filmesSalvos.push(filme)
+    //Adicoiando o filme ao localStorage
+    localStorage.setItem("@primeflix", JSON.stringify(filmesSalvos));
+    alert("Filme Salvo Com Sucesso!")
+  };
 
 //se estiver carregando a requisição faz isso, depois seta como falso lá em cima e pula pra baixo
   if (load) {
@@ -61,7 +77,7 @@ const Filme = () => {
        <strong>Avaliação: {filme.vote_average.toFixed(1)} /10</strong>
 
        <div className='area-buttons'>
-        <button>Salvar</button>
+        <button onClick={salvarFilme}>Salvar</button>
         <button>
           <a target='_blank' rel="external" href={`https://youtube.com/results?search_query=${filme.title} trailer`}>
             Trailler
