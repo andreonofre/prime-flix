@@ -2,6 +2,9 @@ import "./favoritos.css";
 import React from 'react'
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify"
+
+
 
 const Favoritos = () => {
 
@@ -20,7 +23,8 @@ const Favoritos = () => {
             return (item.id !== id)
         })
         // alert("Filme Excluído com sucesso!" + id)
-        alert("Filme Excluído com sucesso!")
+        toast.success("Filme Excluído com sucesso!")
+        // alert("Filme Excluído com sucesso!")
         //Vai receber todos, menos o que eu cliquei
         setMovie(filterFilmes);
         localStorage.setItem("@primeflix", JSON.stringify(filterFilmes))

@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate, json } from 'react-router-dom';
 import Api from '../../services/Api';
 import "./detalhes.css";
+import { toast } from "react-toastify"
+
+
 
 const Filme = () => {
   //pegando o meu ID ao clicar no link que direciona pra essa rota
@@ -48,7 +51,8 @@ const Filme = () => {
     const hasFIlme = filmesSalvos.some((filmeSalvo) => filmeSalvo.id === filme.id)
 
     if (hasFIlme) {
-      alert("Filme Já cadastrado")
+      toast.warn("Ops, esse filme já está na sua lista.")
+      // alert("Filme Já cadastrado")
       return;
     }
 
@@ -56,7 +60,8 @@ const Filme = () => {
     filmesSalvos.push(filme)
     //Adicoiando o filme ao localStorage
     localStorage.setItem("@primeflix", JSON.stringify(filmesSalvos));
-    alert("Filme Salvo Com Sucesso!")
+    toast.success("Filme salvo com sucesso!")
+    // alert("Filme Salvo Com Sucesso!")
   };
 
 //se estiver carregando a requisição faz isso, depois seta como falso lá em cima e pula pra baixo
